@@ -1,12 +1,12 @@
-title: John Smith
-description: My Personal Blog
-author: John Smith
+title: Curious Programmer
+description: Showcasing my talent
+author: Sarah Bolt
 logo: /hcz-jekyll-blog/static/img/avatar.png
-github: https://github.com/codeasashu
-about: Freelance developer
+github: https://github.com/sdf94
+about: Switching careers from Chemistry to Data analysis. 
 
-baseurl: "https://codeasashu.github.io/hcz-jekyll-blog"
-url: "https://codeasashu.github.io/hcz-jekyll-blog"
+baseurl: "https://sdf94.github.io"
+url: "https://sdf94.github.io"
 
 allowsearch: true
 
