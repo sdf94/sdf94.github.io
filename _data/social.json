@@ -1,18 +1,10 @@
 [
   {
-    "icon": "fa-facebook",
-    "link": ""
-  },
-  {
-    "icon": "fa-twitter",
-    "link": ""
-  },
-  {
     "icon": "fa-linkedin",
-    "link": ""
+    "link": "https://www.linkedin.com/in/sarah-floris/"
   },
   {
-    "icon": "fa-stack-exchange",
-    "link": ""
+    "icon": "fa-stack-overflow",
+    "link": "https://stackoverflow.com/users/8572456/goldengenova"
   }
 ]
