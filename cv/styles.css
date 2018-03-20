@@ -87,10 +87,6 @@ a img{border:0px;}
 	float:left;
 	margin-right:20px;
 }
-#about .content #service-icons li.services-design{background:url(images/icon-1.png) no-repeat;}
-#about .content #service-icons li.services-mobile{background:url(images/icon-2.png) no-repeat;}
-#about .content #service-icons li.services-film{background:url(images/icon-3.png) no-repeat;}
-#about .content #service-icons li.services-photo{background:url(images/icon-4.png) no-repeat;}
 
 /****************************************************/
 /* EXPERIENCE SECTION */
@@ -191,6 +187,7 @@ a img{border:0px;}
 #connect #social-footer #sm-links li a.google{background:url(images/sm-google-icon.png) no-repeat;}
 #connect #social-footer #sm-links li a.youtube{background:url(images/sm-youtube-icon.png) no-repeat; width:28px;}
 #connect #social-footer #sm-links li a.linkedin{background:url(images/sm-linkedin-icon.png) no-repeat;}
+#connect #social-footer #sm-links li a.github{background:url(images/sm-github-icon.png) no-repeat;}
 
 /****************************************************/
 /* MISC */
