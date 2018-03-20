@@ -19,6 +19,13 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 /* Blog */
 ul.posts { margin: 20px auto 40px; font-size: 1.5em; }
 ul.posts li { list-style: none; }
+pre code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  white-space: pro-wrap;
+}
 
 /* CV */
 .cv { margin: 0px 0px 60px; }
@@ -27,3 +34,4 @@ ul.posts li { list-style: none; }
 .cv address, .cv .download { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 .cv address, .cv p { font-size: 1.2em; }
 .cv .download { float: right; font-size: .8em; text-transform: uppercase; }
+
