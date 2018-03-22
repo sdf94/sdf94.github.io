@@ -4,8 +4,6 @@ title: "Twitter Tool"
 date: 2018-03-22
 ---
 
-
-<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 <title>Tweets</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
