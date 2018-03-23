@@ -119,3 +119,7 @@ hr {
   border-style: none none dotted; 
   margin: 0 10% 0 0;
 }
+
+table td, table td * {
+    vertical-align: top;
+}
