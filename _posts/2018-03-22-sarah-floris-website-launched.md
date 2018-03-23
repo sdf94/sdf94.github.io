@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Twitter Tool"
 date: 2018-03-22
 ---
