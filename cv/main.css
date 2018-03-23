@@ -120,6 +120,7 @@ hr {
   margin: 0 10% 0 0;
 }
 
-table td, table td * {
+td {
+    color: #808284;
     vertical-align: top;
 }
