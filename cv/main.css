@@ -12,25 +12,6 @@ body {
   text-transform: uppercase;
 }
 
-.box {
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
-    margin: 25px;
-    padding: 30px;
-    border-width: 35px;
-    outline: 5px double #1C6EA4;
-  outline-offset: 5px;
-    justify-content: space-around;
-}
-
-.red-wrapper {
-    column-count: 3;
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-}
-
 .contact-information, .links-container {
   color: #808284;
   display: inline-block;
