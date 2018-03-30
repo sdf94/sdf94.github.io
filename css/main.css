@@ -35,7 +35,7 @@ ul.posts li { list-style: none; }
     padding: 30px;
     border-width: 35px;
     outline: 5px double #1C6EA4;
-  outline-offset: 5px;
+    outline-offset: 5px;
     justify-content: space-around;
 }
 
