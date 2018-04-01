@@ -1,9 +1,10 @@
 ---
 layout: default
-title: "Twitter Tool"
-date: 2018-03-22
+title: Sarah Floris 
 ---
 
+
+<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 <title>Tweets</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
@@ -11788,6 +11789,33 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Twitter information is useful to analyze customers, human behavior, and other type of research. Unfortunately, Twitter restricts its access to the information via an API. A work around the API would be to webscrape the pages after a search. This jupyter notebook is an example of the Twitter Scraping Tool created on my Github page.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Disclaimer: This tool still has its limits, so only the <a href="https://developer.twitter.com/en/docs/tutorials/twitters-enterprise-api-suite" target="_blank">Enterprise API</a> from Twitter has full access to Twitter data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having said that, let's begin!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>I will run the following code to verify that I meet all the requirement steps. The "!" means to run it on the terminal.</p>
 
 </div>
@@ -11834,7 +11862,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The test data I will be using is part of my video games capstone project. The original data can be found on Kaggle (link: <a href="https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings">https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings</a>).</p>
+<p>The test data I will be using is part of my video games capstone project. The original data can be found on <a href="https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings" target="_blank">Kaggle</a>.</p>
 
 </div>
 </div>
@@ -11898,9 +11926,8 @@ div#notebook {
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">length_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;length&#39;</span> <span class="p">:</span> <span class="p">[]})</span>
 <span class="n">length</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">videogame</span> <span class="ow">in</span> <span class="n">list_videogames</span><span class="p">[:</span><span class="mi">1</span><span class="p">]:</span> 
-    <span class="n">search</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span><span class="o">+</span><span class="n">videogame</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span>
-    <span class="c1">#/project/Springboard/Capstone Project/Data/Tweets/tweet_files/output_got.csv</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../tweet_files/&#39;</span><span class="o">+</span><span class="n">videogame</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span><span class="o">+</span><span class="n">videogame</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span> <span class="c1">#need quoates because otherwise, query read as individual words or &quot;include some of these words&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../tweet_files/&#39;</span><span class="o">+</span><span class="n">videogame</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span> <span class="c1">#saving it to this file</span>
     <span class="o">!</span>python Exporter.py --since <span class="m">2015</span>-1-1 --querysearch <span class="nv">$search</span> --maxtweets <span class="m">5000</span> --output <span class="nv">$path</span>
 <span class="n">length_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">length_df</span><span class="p">)</span>
@@ -11926,6 +11953,9 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">finding_tweets</span><span class="p">(</span><span class="n">listed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;I created this function so I could run Multithreading.</span>
+<span class="sd">    Input: list of two values including the query and the date</span>
+<span class="sd">    Output: list of the text and the count of the text&quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">datetime</span>
     <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
     <span class="n">search_text</span><span class="p">,</span> <span class="n">search_year</span> <span class="o">=</span> <span class="n">listed</span>
@@ -11935,7 +11965,7 @@ div#notebook {
     <span class="n">search_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">search_year</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
     <span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#check if the file already exists or if its empty</span>
         <span class="o">!</span>python Exporter.py --querysearch <span class="nv">$search</span> --maxtweets <span class="m">1000</span> --output <span class="nv">$filepath</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">length_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
@@ -11965,7 +11995,6 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
-<span class="kn">import</span> <span class="nn">time</span>
 <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">clean_df</span> <span class="o">=</span> <span class="p">[]</span>
@@ -12010,7 +12039,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I do not want to continually have to rerun this web scraping because it takes quite a bit of time. Thus, all of the values are saved in a .csv file called "tweet.csv"</p>
+<p>Because I do not want to continually have to rerun the webscraper, I decided to save these values from clean_list to a  .csv file called "tweet.csv".</p>
 
 </div>
 </div>
@@ -12020,7 +12049,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clean_df</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;tweet.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clean_df</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;tweet.csv&#39;</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12032,7 +12061,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hope this helps with your adventure of exploring data!</p>
+<p>Hope this helps with your adventure of exploring Twitter data!</p>
 
 </div>
 </div>
