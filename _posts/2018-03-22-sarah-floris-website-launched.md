@@ -13,12 +13,12 @@ Disclaimer: This tool still has its limits, so only the <a href="https://develop
 Having said that, let's begin!  
 
 I will run the following code to verify that I meet all the requirement steps. The "!" means to run it on the terminal.
-
+<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
 
 ```python
 !pip install -r requirements.txt
 ```
-
+</p>
 Great! I meet all of the requirements. Now, I need to import the following modules so that I can run the code. 
 
 
