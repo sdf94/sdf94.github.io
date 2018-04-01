@@ -13,20 +13,19 @@ Disclaimer: This tool still has its limits, so only the <a href="https://develop
 Having said that, let's begin!  
 
 I will run the following code to verify that I meet all the requirement steps. The "!" means to run it on the terminal.
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
-
+`
 !pip install -r requirements.txt
-</p>
+`
 Great! I meet all of the requirements. Now, I need to import the following modules so that I can run the code. 
 
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 import pandas as pd
 import numpy as np
 import re
-</p>
+`
 The test data I will be using is part of my video games capstone project. The original data can be found on <a href="https://www.kaggle.com/rush4ratio/video-game-sales-with-ratings" target="_blank">Kaggle</a>.
 
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 #Importing the data and filling the empty cells with 0.
 sales = pd.read_csv('/project/Springboard/Capstone Project/Data/Video_Games_Sales_as_at_22_Dec_2016 2.csv').fillna(value=0.0)
 
@@ -35,19 +34,16 @@ sales = sales[sales['Year_of_Release'] >= 2006.0]
 
 #Deleting any weird symbols in the name, so that the name is clean for twitter search
 sales['Name'] = [re.sub(r'[^\w\s]','',string) for string in sales['Name']] 
-</p>
+`
 
 Now that the data is cleared, I can begin making my list for the search.
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 list_videogames = sales[['Name','Year_of_Release']].values
-</p>
-
+`
 If your search is not that lengthy as mine, then you can use the following code.
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 length_df = pd.DataFrame({'length' : []})
 length = []
 for videogame in list_videogames[:1]: 
@@ -56,12 +52,11 @@ for videogame in list_videogames[:1]:
     !python Exporter.py --since 2015-1-1 --querysearch $search --maxtweets 5000 --output $path
 length_df = pd.read_csv(path,sep=';')
 print(length_df)
-</p>
+`
 
 However, the input I require has approximately 16000 videogames and dates. Thus, I created a function, so I can run it parallel. <br> <em> Note that the function I have created returns the text I searched, the number of total messages over that period, and the dates. </em>
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 def finding_tweets(listed):
     """I created this function so I could run Multithreading.
     Input: list of two values including the query and the date
@@ -83,12 +78,11 @@ def finding_tweets(listed):
     except:
         length_df = ['0']
         return (search_text, len(length_df))
-</p>
+`
 
 Now, it is time to set up the multithreading that speeds up the process. I first separated the list of videogames into chunks, so that I do not overflow the twitter page with search requests. Then, I take each chunk I have created and send it through 100 threads with ThreadPool. Lastly, I add the results to a list called "clean_list".
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 from multiprocessing.pool import ThreadPool
 results = []
 n = 10
@@ -100,22 +94,19 @@ for chunk in chunks:
     pool.close()
     pool.join()
     clean_list = clean_list + results
-</p>
+`
 
 Let's check the results. 
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 for row in clean_list:
     print(row)
-</p>
-
+`
 Because I do not want to continually have to rerun the webscraper, I decided to save these values from clean_list to a  .csv file called "tweet.csv". 
 
-
-<p style="background-color: #eee;border: 1px solid #999;display: block;padding: 20px;white-space: pro-wrap;">
+`
 pd.DataFrame(clean_df).to_csv('tweet.csv') 
-</p>
+`
 
 Hope this helps with your adventure of exploring Twitter data! 
 
