@@ -1,6 +1,6 @@
 ---
 layout: page
-title: resume
+title: Sarah Floris, M.S.
 permalink: /resume/
 ---
 <head>
@@ -13,6 +13,7 @@ permalink: /resume/
         <a href="https://github.com/sdf94" target="_blank"><img src="./img/gh_icon.png" alt="github icon" width="21" height="21">GitHub</a>
         <a href="https://www.linkedin.com/in/sarah-floris/" target="_blank"><img src="./img/in_icon.png" alt="linkedin icon" width="18" height="18">LinkedIn</a>
       </article><br>
+	  <a class='topright' href="/docs/lbogoev.pdf" target="_blank">[download pdf]</a>
   </header>
   <section>
     <h2>Key Qualifications </h2><br><hr>
@@ -78,6 +79,4 @@ data points to estimate the desired properties of ionic liquid binary mixtures f
         Discrete Mathematics
       </p>
   </section>
-
-
 </body>
