@@ -1,22 +1,24 @@
 ---
 layout: default
-title: Sarah Floris 
 ---
 
-		<div class="blurb">
-			<h1>A website to showcase statistical learning, programming, and everything in between.</h1>
-			<h3>Sarah Floris(Sarah Bolt)</h3>
-			<p> Feel free to look around this website. My projects are listed below.</p>
+<div class="header-bar">
+  <h1>*folio</h1>
+  <h2>simple whitespace theme</h2>
+  <br/>
+  <hr>
+  <br/>
+</div>
 
-			<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 
-			<div class="red-wrapper">
-				<h1 class="box"><a href="https://sdf94.github.io/blog/2018/03/22/sarah-floris-website-launched" style="text-decoration: none" >Twitter Tool</a></h1>
-				<h1 class="box"><em>Coming soon..</em></h1>
-				<h1 class="box"><em>Coming soon..</em></h1>
-			</div>
-
-			<p>Interested in talking to me? Feel free to contact me on LinkedIn or look at my <a href="/cv">CV</a></p>
-			<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="sarah-floris"><a class="LI-simple-link" href='https://www.linkedin.com/in/sarah-floris?trk=profile-badge'>Sarah Floris</a></div>
-
-		</div> 
+<ul class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+        <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+        <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
+        <p>{{ post.description }}</p>
+        <br/>
+        <hr/>
+      </li>
+    {% endfor %}
+</ul>
