@@ -97,6 +97,7 @@ $on-laptop:        800px;
 
 .content h2 {
   color: #DF723E;
+  font-size: .01em;
   letter-spacing: 1px;
   margin-top: 1em;
   margin-bottom: .1em;
@@ -141,6 +142,12 @@ $on-laptop:        800px;
   margin-left: 2%;
   margin-right: 7%;
   margin-top: .01em;
+}
+
+hr {
+  border: 1px dotted #A7A9AB;
+  border-style: none none dotted; 
+  margin: 0 10% 0 0;
 }
 
 // Using media queries with like this:
