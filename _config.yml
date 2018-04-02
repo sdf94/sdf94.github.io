@@ -12,3 +12,5 @@ name: Sarah Floris
 markdown: kramdown
 permalink: "/blog/:year/:month/:day/:title"
 Field name: 
+
+theme: jekyll-theme-minimal
