@@ -42,11 +42,11 @@ Statistics: Hypothesis testing, confidence intervals, regression models, dimensi
     <a href="https://github.com/sdf94/Tweets" target="_blank"> Twitter Scraping Tool | <p>https://github.com/sdf94/Tweets</p></a>
       <p> A Python tool to webscrape old tweets from the twitter page to eliminate the usage of the Twitter Official API and decrease the time by 60%. <br> <b>Tools</b>: pyquery, lxml, datetime
 </p>
-      <a href="https://github.com/joekasp/ionic_liquids" target="_blank">ILest: Ionic Liquid estimation Tool | <p>https://github.com/joekasp/ionic_liquids</p></a>
+      <a href="https://github.com/sdf94/ionic_liquids" target="_blank">ILest: Ionic Liquid estimation Tool | <p>https://github.com/sdf94/ionic_liquids</p></a>
       <p> <em>team project</em>, implemented LASSO, SVR, and MLP-Regressor on 10,000 
 data points to estimate the desired properties of ionic liquid binary mixtures for electric battery applications <br> <b>Tools</b>: scikit-learn, Pandas, RDKit, Matplotlib
 </p>
-      <a href="https://github.com/yongqx/DDDP" target="_blank">Data-Driven Design of Perovskite | <p>https://github.com/yongqx/DDDP</p></a>
+      <a href="https://github.com/sdf94/DDDP-1" target="_blank">Data-Driven Design of Perovskite | <p>https://github.com/sdf94/DDDP-1</p></a>
       <p> <em>team project</em>, carried out LASSO, and supervised neural networks on a reduced data set to identify the optimal combination of elements in the hybrid organic perovskites (crystals) <br>
 <b>Tools</b>: scikit-learn, Pandas, RDKit, Matplotlib
 </p>
