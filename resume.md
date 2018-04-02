@@ -42,7 +42,7 @@ Statistics: Hypothesis testing, confidence intervals, regression models, dimensi
     <td>Dutch (mother tongue), English (native), Spanish(intermediate)</td>
   </tr>
 </table>
-    <h2>Code</h2><hr>
+    <h2>Code</h2>
     <a class="primary-titles" href="https://github.com/sdf94/Tweets" target="_blank"> Twitter Scraping Tool | <p class="links">https://github.com/sdf94/Tweets</p></a>
       <p class="category-description"> A Python tool to webscrape old tweets from the twitter page to eliminate the usage of the Twitter Official API and decrease the time by 60%. <br> <b>Tools</b>: pyquery, lxml, datetime
 </p>
