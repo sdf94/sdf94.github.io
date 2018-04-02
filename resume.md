@@ -12,11 +12,11 @@ permalink: /resume/
 </head>
 <body>
   <header class="header-details">
-    <h1 class="name">Sarah Floris | </h1>
+    <h1 class="name">Sarah Floris </h1>
       <article class="links-container">
-        <a class="links" href="https://github.com/sdf94" target="_blank"><img src="./img/gh_icon.png" alt="github icon" width="21" height="21">GitHub</a>
-        <a class="links" href="https://www.linkedin.com/in/sarah-floris/" target="_blank"><img src="./img/in_icon.png" alt="linkedin icon" width="18" height="18">LinkedIn</a>
-      </article><br>
+        <a class="links" href="https://github.com/sdf94" target="_blank"><img src="./img/gh_icon.png" width="21" height="21">GitHub</a>
+        <a class="links" href="https://www.linkedin.com/in/sarah-floris/" target="_blank"><img src="./img/in_icon.png" width="18" height="18">LinkedIn</a>
+      </article>
   </header>
   <section class="content">
     <h2>Key Qualifications </h2><br><hr>
@@ -47,8 +47,7 @@ Statistics: Hypothesis testing, confidence intervals, regression models, dimensi
       <p class="category-description"> A Python tool to webscrape old tweets from the twitter page to eliminate the usage of the Twitter Official API and decrease the time by 60%. <br> <b>Tools</b>: pyquery, lxml, datetime
 </p>
       <a class="primary-titles" href="https://github.com/sdf94/ionic_liquids" target="_blank">ILest: Ionic Liquid estimation Tool | <p class="links">https://github.com/sdf94/ionic_liquids</p></a>
-      <p class="category-description"> <em>team project</em>, implemented LASSO, SVR, and MLP-Regressor on 10,000 
-data points to estimate the desired properties of ionic liquid binary mixtures for electric battery applications <br> <b>Tools</b>: scikit-learn, Pandas, RDKit, Matplotlib
+      <p class="category-description"> <em>team project</em>, implemented LASSO, SVR, and MLP-Regressor on 10,000 data points to estimate the desired properties of ionic liquid binary mixtures for electric battery applications <br> <b>Tools</b>: scikit-learn, Pandas, RDKit, Matplotlib
 </p>
       <a class="primary-titles" href="https://github.com/sdf94/DDDP-1" target="_blank">Data-Driven Design of Perovskite | <p class="links">https://github.com/sdf94/DDDP-1</p></a>
       <p class="category-description"> <em>team project</em>, carried out LASSO, and supervised neural networks on a reduced data set to identify the optimal combination of elements in the hybrid organic perovskites (crystals) <br>
@@ -75,7 +74,6 @@ data points to estimate the desired properties of ionic liquid binary mixtures f
           <p class="primary-titles">Abilene Christian University | <span class="location">Abilene, TX </span></p>
           <p class="category-details">BS Chemistry | Minor: Mathematics | Magna cum laude | University Scholar | <br>
           Honors Thesis: “Oxidation of Hydrated Hydrogen Sulfide"| National Science Foundation Research Experience for Undergraduates Recipient<br>2016</p>
-</p>
 <h2>Coursework</h2><hr>
       <p class="category-description">Data Science Methods for Clean Energy Research <br>
         Software Engineering for Molecular Data Scientist <br>
