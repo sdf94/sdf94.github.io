@@ -8,7 +8,6 @@ collections:
   uploads:
     title: Uploads
     output: true
-name: Sarah Floris
+name: Hank Quinlan, Horrible Cop
 markdown: kramdown
 permalink: "/blog/:year/:month/:day/:title"
-Field name: 
