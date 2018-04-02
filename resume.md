@@ -19,7 +19,7 @@ permalink: /resume/
       </article>
   </header>
   <section class="content">
-    <h2>Key Qualifications </h2><br><hr>
+    <h2>Key Qualifications </h2><hr>
       <p class="category-description-main">Experience in designing, analyzing and presenting large datasets <br /> Researched and volunteered at local and national accredited hospitals <br /> 
  Solved problems independently and among multidisciplinary background teams<br /> 
  Certified in Tableau Desktop Associate (January, 2017)<br /> 

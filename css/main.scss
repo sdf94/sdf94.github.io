@@ -7,7 +7,12 @@
     position: absolute;
     top: 8px;
     right: 16px;
-    font-size: 18px;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
 }
 
 // Our variables
@@ -90,15 +95,6 @@ $on-laptop:        800px;
   text-transform: uppercase;
 }
 
-.content h2 {
-  color: #DF723E;
-  font-size: .5em;
-  letter-spacing: 1px;
-  margin-top: 1em;
-  margin-bottom: .1em;
-  text-transform: uppercase;
-}
-
 .content ul {
   margin: 0;
   padding: 0;
@@ -137,12 +133,6 @@ $on-laptop:        800px;
   margin-left: 2%;
   margin-right: 7%;
   margin-top: .01em;
-}
-
-hr {
-  border: 1px dotted #A7A9AB;
-  border-style: none none dotted; 
-  margin: 0 10% 0 0;
 }
 
 // Using media queries with like this:
