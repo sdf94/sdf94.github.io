@@ -25,7 +25,7 @@ permalink: /resume/
  Certified in Tableau Desktop Associate (January, 2017)<br /> 
  Multilingual (Dutch, English, Spanish) </p>
     <h2>Skills</h2><hr> 
-    <p style="width:100%">
+    <table style="width:100%">
   <tr>
     <td><b>Technical</b></td>
     <td><b>Machine learning</b>: Classification, regression, clustering, natural language processing, feature engineering, Data scraping, manipulation and visualization(e.g. Matplotlib, seaborn, Plotly)
@@ -41,7 +41,7 @@ Statistics: Hypothesis testing, confidence intervals, regression models, dimensi
     <td><b>Languages</b></td>
     <td>Dutch (mother tongue), English (native), Spanish(intermediate)</td>
   </tr>
-</p>
+</table>
     <h2>Code</h2><hr>
     <a class="primary-titles" href="https://github.com/sdf94/Tweets" target="_blank"> Twitter Scraping Tool | <p class="links">https://github.com/sdf94/Tweets</p></a>
       <p class="category-description"> A Python tool to webscrape old tweets from the twitter page to eliminate the usage of the Twitter Official API and decrease the time by 60%. <br> <b>Tools</b>: pyquery, lxml, datetime
