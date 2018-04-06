@@ -5,6 +5,10 @@ date: 2018-04-06 14:31:00
 description: Pulling the chats details to analyze Zendesk metrics 
 ---
 
+Zendesk Chat API is a really convenient way to import the metrics from Zendesk chats. Unfortunately, the blogpost about this code on Zendesk is not updated, so I decided to create this blog post to explain and give you an updated version of what they have. I will be using python 2.7; however, this can be easily applied to an upgraded version of python. 
+
+I import the necessary modules and libraries. 
+
 {% highlight python %}
 import requests 
 import json
@@ -14,7 +18,7 @@ import io
 import datetime  
 import matplotlib as plt  {% endhighlight %}
 
-Produces something like this: 
+Depending on the version of python you use, you will need to import either zip_longest or izip_longest. The following code allows you to use either version without giving you problem.
 
 {% highlight python %}
 try:
@@ -23,7 +27,7 @@ except:
     from itertools import izip_longest as zip_longest
 {% endhighlight %}
 
-BLALBLA
+Next, I will need to input my credentials from Zendesk. 
 
 {% highlight python %} 
 config = {'username':username,
@@ -32,11 +36,17 @@ config = {'username':username,
     }
 {% endhighlight %}
 
+The Session object allows me to persist certain parameters across requests and persists cookies across all requests made from the Session instance. A session object has all the methods of the main Requests API.
+
+Let's persist some cookies across requests:
+
 {% highlight python %}
 s = requests.Session()
 s.auth = (config['username'],config['password'])
 s.headers.update({"content-type":"application/json"}) 
 {% endhighlight %}
+
+And now for the actual API call... 
 
 {% highlight python %}
 def get_chat_ids_for_month(year, month,day,year1, month1,day1):
@@ -56,6 +66,8 @@ def get_chat_ids_for_month(year, month,day,year1, month1,day1):
             print("A request failed in the loop")
     return all_chat_ids
  {% endhighlight %}
+
+Instead of sending each call separately, I can group them together using the grouper's function and request them in a single HTTP request.  
 
 {% highlight python %} 
 def _grouper(n, iterable, fillvalue=None):
@@ -87,9 +99,13 @@ def build_csv_data(queried_id_list):
     return all_chats_for_csv
 {% endhighlight %}
 
+NOTE: For the next step, a limit of 10,000 on the number of chats that Zendesk's API will send you back exists. If this limit is surpassed, it will just return the latest value. I solved this issue by splitting up the dates into groups, so that the 10,000 limit is not reached.  
+
 {% highlight python %}
 queried_id_list = get_chat_ids_for_month(2017,5,1,2017,12,31)
 {% endhighlight %}
+
+Now, I have a document object that I want to separate into separate columns.
 
 {% highlight python %} 
 all_rows_as_obj = []
@@ -125,8 +141,9 @@ for record in csv_obj_data:
             print("key error occured for record with id: {}".format(record['id']))
             pass
     all_rows_as_obj.append(csv_obj)
- {% endhighlight %}
+{% endhighlight %}
 
+Everything is separated now; however, I decided to save it in a file, so I do not have to run it every time I need to make an edit or something like that. 
 
 {% highlight python %}
 col_keys = all_rows_as_obj[0].keys()
@@ -135,3 +152,5 @@ csv_frame['end timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:
 csv_frame['start timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['start timestamp']]
 csv_frame.to_excel('stats.xlsx',encoding='utf-8')
 {% endhighlight %}
+
+This data is not clean yet, but it is available in excel format. 
