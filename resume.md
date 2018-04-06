@@ -28,19 +28,19 @@ permalink: /resume/
     <table style="width:100%">
   <tr>
     <td><b>Technical</b></td>
-    <td><b>Machine learning</b>: Classification, regression, clustering, natural language processing, feature engineering, Data scraping, manipulation and visualization(e.g. Matplotlib, seaborn, Plotly)
-Statistics: Hypothesis testing, confidence intervals, regression models, dimensionality reduction
+    <td><b>Machine learning:</b> <p class="category-description-main">Classification, regression, clustering, natural language processing, feature engineering, Data scraping, manipulation and visualization(e.g. Matplotlib, Seaborn, Plotly)
+<b>Statistics:</b>Hypothesis testing, confidence intervals, regression models, dimensionality reduction </p>
 </td>
   </tr>
   <tr>
-    <td><b>Coding</b></td>
+    <td><b>Coding</b></td> <p class="category-description-main">
     <td><b>Proficient</b>: Python (Scikit-learn, pandas, numpy, matplotlib, plotly, etc.), Lunix/Unix, Bash, Fortran, C++ , Tableau, SherlockLM (interface with AWS with Hadoop, Spark, etc. capabilities),Google Analytics, and Microsoft Excel
-    <b>Familiar</b>: SalesForce.com, SQL, git, Perl</td>
+    <b>Familiar</b>: SalesForce.com, SQL, git, Perl</td></p>
   </tr>
   <tr>
-    <td><b>Languages</b></td>
+    <td><b>Languages</b></td><p class="category-description-main">
     <td>Dutch (mother tongue), English (native), Spanish(intermediate)</td>
-  </tr>
+  </tr></p>
 </table>
     <h2>Code</h2><hr>
     <a class="primary-titles" href="https://github.com/sdf94/Tweets" target="_blank"> Twitter Scraping Tool | <p class="links">https://github.com/sdf94/Tweets</p></a>
