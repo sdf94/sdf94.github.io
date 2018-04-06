@@ -14,7 +14,7 @@ permalink: /resume/
   <header class="header-details">
     <h1 class="name">Sarah Floris </h1>
       <article class="links-container">
-        <a class="links" href="https://github.com/sdf94"> <img src="./img/gh_icon.png" width="21" height="21">GitHub</a>
+        <a class="links" href="https://github.com/sdf94" <img src="./img/gh_icon.png" width="21" height="21">GitHub</a>
         <a class="links" href="https://www.linkedin.com/in/sarah-floris/" ><img src="./img/in_icon.png" width="18" height="18">LinkedIn</a>
       </article>
   </header>
@@ -28,19 +28,19 @@ permalink: /resume/
     <table style="width:100%">
   <tr>
     <td><b>Technical</b></td>
-    <td><b>Machine learning:</b> <p class="category-description-main">Classification, regression, clustering, natural language processing, feature engineering, Data scraping, manipulation and visualization(e.g. Matplotlib, Seaborn, Plotly)
-<b>Statistics:</b>Hypothesis testing, confidence intervals, regression models, dimensionality reduction </p>
+    <td><b>Machine learning:</b> Classification, regression, clustering, natural language processing, feature engineering, Data scraping, manipulation and visualization(e.g. Matplotlib, Seaborn, Plotly)
+<b>Statistics:</b>Hypothesis testing, confidence intervals, regression models, dimensionality reduction 
 </td>
   </tr>
   <tr>
-    <td><b>Coding</b></td> <p class="category-description-main">
+    <td><b>Coding</b></td> 
     <td><b>Proficient</b>: Python (Scikit-learn, pandas, numpy, matplotlib, plotly, etc.), Lunix/Unix, Bash, Fortran, C++ , Tableau, SherlockLM (interface with AWS with Hadoop, Spark, etc. capabilities),Google Analytics, and Microsoft Excel
-    <b>Familiar</b>: SalesForce.com, SQL, git, Perl</td></p>
+    <b>Familiar</b>: SalesForce.com, SQL, git, Perl</td>
   </tr>
   <tr>
-    <td><b>Languages</b></td><p class="category-description-main">
+    <td><b>Languages</b></td>
     <td>Dutch (mother tongue), English (native), Spanish(intermediate)</td>
-  </tr></p>
+  </tr>
 </table>
     <h2>Code</h2><hr>
     <a class="primary-titles" href="https://github.com/sdf94/Tweets" target="_blank"> Twitter Scraping Tool | <p class="links">https://github.com/sdf94/Tweets</p></a>
