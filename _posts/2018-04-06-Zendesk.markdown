@@ -25,7 +25,6 @@ except:
 
 BLALBLA
 
-
 {% highlight python %} 
 config = {'username':username,
     'password':password,
@@ -33,13 +32,11 @@ config = {'username':username,
     }
 {% endhighlight %}
 
-
 {% highlight python %}
 s = requests.Session()
 s.auth = (config['username'],config['password'])
 s.headers.update({"content-type":"application/json"}) 
 {% endhighlight %}
-
 
 {% highlight python %}
 def get_chat_ids_for_month(year, month,day,year1, month1,day1):
@@ -60,15 +57,12 @@ def get_chat_ids_for_month(year, month,day,year1, month1,day1):
     return all_chat_ids
  {% endhighlight %}
 
-
-
 {% highlight python %} 
 def _grouper(n, iterable, fillvalue=None):
     """Creates chunks of the query"""
     args = [iter(iterable)] * n
     return zip_longest(fillvalue=fillvalue, *args)
  {% endhighlight %}
-
 
 {% highlight python %}
 def build_csv_data(queried_id_list):
@@ -93,15 +87,12 @@ def build_csv_data(queried_id_list):
     return all_chats_for_csv
 {% endhighlight %}
 
-
 {% highlight python %}
 queried_id_list = get_chat_ids_for_month(2017,5,1,2017,12,31)
- {% endhighlight %}
-
+{% endhighlight %}
 
 {% highlight python %} 
 all_rows_as_obj = []
-
 for record in csv_obj_data:
     try:
         if not pd.isnull(record):
@@ -134,7 +125,6 @@ for record in csv_obj_data:
             print("key error occured for record with id: {}".format(record['id']))
             pass
     all_rows_as_obj.append(csv_obj)
-
  {% endhighlight %}
 
 
