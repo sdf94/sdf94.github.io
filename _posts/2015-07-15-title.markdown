@@ -1,33 +1,155 @@
 ---
 layout: post
-title: a post with code
-date: 2015-07-15 15:09:00
-description: an example of a blog post with some code
+title: Pulling Data from Zendesk Chat API 
+date: 2015-04-06 14:31:00
+description: Pulling the chats details to analyze Zendesk metrics 
 ---
 This theme implements a built-in Jekyll feature, the use of Pygments, for sytanx highlighting. It supports more than 100 languages. This example is in C++. All you have to do is wrap your code in a liquid tag: 
 {% raw  %}
-{% highlight c++ %}  <br/> code code code <br/> {% endhighlight %}{% endraw %}
+{% highlight c++ %}  <br/> 
+import requests 
+import json
+import pandas as pd
+import numpy as np
+import io
+import datetime  
+import matplotlib as plt <br/> {% endhighlight %}{% endraw %}
 
 Produces something like this: 
 
-{% highlight c++ %}
+{% raw  %}
+{% highlight c++ %}  <br/> 
 
-int main(int argc, char const *argv[])
-{
-	string myString;
+try:
+    from itertools import zip_longest as zip_longest
+except:
+    from itertools import izip_longest as zip_longest
 
-	cout << "input a string: ";
-	getline(cin, myString);
-	int length = myString.length();
-	
-	char charArray = new char * [length];
+{% endhighlight %}{% endraw %}
 
-	charArray = myString;
-	for(int i = 0; i < length; ++i){
-		cout << charArray[i] << " ";
-	}
-	
-	return 0;
-}
+BLALBLA
 
-{% endhighlight %}
+{% raw  %}
+{% highlight c++ %}  <br/> 
+
+config = {'username':username,
+    'password':password,
+    'base_path': 'https://www.zopim.com/api/v2'
+    }
+
+<br/> {% endhighlight %}{% endraw %}
+
+{% raw  %}
+{% highlight c++ %} 
+s = requests.Session()
+s.auth = (config['username'],config['password'])
+s.headers.update({"content-type":"application/json"}) 
+<br/> {% endhighlight %}{% endraw %}
+
+
+{% raw  %}
+{% highlight c++ %}  <br/> 
+
+def get_chat_ids_for_month(year, month,day,year1, month1,day1):
+    """This function properly formats the date to search"""
+    all_chat_ids = []
+    search_query = "timestamp:[{0}-{1}-{2} TO {3}-{4}-{5}]".format(year, month, day, year1, month1, day1)
+    params = {"q":search_query}
+    url = "{0}/chats/search".format(config['base_path'])
+    while url:
+        r = s.get(url, params=params)
+        if r.status_code == 200:
+            response = json.loads(r.text)
+            for chat in response['results']:
+                all_chat_ids.append(chat['id'])
+                url = response['next_url']
+        else:
+            print("A request failed in the loop")
+    return all_chat_ids
+<br/> {% endhighlight %}{% endraw %}
+
+
+{% raw  %}
+{% highlight c++ %}  <br/> 
+def _grouper(n, iterable, fillvalue=None):
+    """Creates chunks of the query"""
+    args = [iter(iterable)] * n
+    return zip_longest(fillvalue=fillvalue, *args)
+<br/> {% endhighlight %}{% endraw %}
+
+{% raw  %}
+{% highlight c++ %}  <br/>
+def build_csv_data(queried_id_list):
+    """Retrieves the data from the Chat API"""
+    import time
+    all_chats_for_csv = []
+    for chunk in _grouper(50, queried_id_list):
+        filtered = [id for id in chunk if id is not None] 
+        url = "{0}/chats".format(config['base_path'])
+        stringified_ids = ",".join(filtered)
+        params = {"ids":stringified_ids}
+        r = s.get(url, params=params)
+        if r.status_code == 200:
+            response = json.loads(r.text)
+            docs = response['docs']
+            for k in docs:
+                doc_obj = docs[k] #This is the 'doc' object. Note that some keys may not exist for all items. Duration does not exist for offline messages for example
+                all_chats_for_csv.append(doc_obj)
+        else:
+            print("error getting bulk chats")
+            continue 
+    return all_chats_for_csv
+<br/> {% endhighlight %}{% endraw %}
+
+{% raw  %}
+{% highlight c++ %}  <br/> 
+queried_id_list = get_chat_ids_for_month(2017,5,1,2017,12,31)
+<br/> {% endhighlight %}{% endraw %}
+
+{% raw  %}
+{% highlight c++ %}  <br/> 
+all_rows_as_obj = []
+
+for record in csv_obj_data:
+    try:
+        if not pd.isnull(record):
+            response_time = record.get('response_time', {})
+            count = record.get('count',{})
+            csv_obj = {
+                  "id": record['id'],
+                  "agent": ",".join(record.get('agent_names', "N/A")),
+                  "visitor": record['visitor']['name'],
+                  "visitor_email":record['visitor']['email'],
+                  "department": record['department_name'],
+                  "url": record.get('webpath', "N/A"),
+                  "type": record.get('type', "N/A"),
+                  "duration": record.get('duration','N/A'),
+                  "resp_first": response_time.get('first', []),
+                  "resp_max": response_time.get('max', []),
+                  "resp_avg": response_time.get('avg', []),
+                  "start timestamp": record['session']['start_date'],
+                  "end timestamp": record['session']['end_date'],
+                  "total messages": count.get('total', 0),
+                  "Agent Msg Count": count.get('agent', 0),
+                  "Visitor Msg Count": count.get('visitor', 0),
+                  "rating": record.get('rating',[]),
+                  "ticket_id": record['zendesk_ticket_id'],
+                  "city": record['session']['city'],
+                  "region": record['session']['region'],
+                  "country": record['session']['country_code']
+                }
+    except KeyError as e:
+            print("key error occured for record with id: {}".format(record['id']))
+            pass
+    all_rows_as_obj.append(csv_obj)
+
+<br/> {% endhighlight %}{% endraw %}
+
+{% raw  %}
+{% highlight c++ %}  <br/> 
+col_keys = all_rows_as_obj[0].keys()
+csv_frame = pd.DataFrame([[i[j] for j in col_keys] for i in all_rows_as_obj], columns=col_keys)
+csv_frame['end timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['end timestamp']]
+csv_frame['start timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['start timestamp']]
+csv_frame.to_excel('stats.xlsx',encoding='utf-8')
+<br/> {% endhighlight %}{% endraw %}
