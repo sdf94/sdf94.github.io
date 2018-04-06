@@ -5,7 +5,7 @@ date: 2018-04-06 14:31:00
 description: Pulling the chats details to analyze Zendesk metrics 
 ---
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %} 
 import requests 
 import json
 import pandas as pd
@@ -28,7 +28,7 @@ except:
 BLALBLA
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %}  
 
 config = {'username':username,
     'password':password,
@@ -46,7 +46,7 @@ s.headers.update({"content-type":"application/json"})
 
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %} 
 
 def get_chat_ids_for_month(year, month,day,year1, month1,day1):
     """This function properly formats the date to search"""
@@ -68,7 +68,7 @@ def get_chat_ids_for_month(year, month,day,year1, month1,day1):
 
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %}   
 def _grouper(n, iterable, fillvalue=None):
     """Creates chunks of the query"""
     args = [iter(iterable)] * n
@@ -76,7 +76,7 @@ def _grouper(n, iterable, fillvalue=None):
  {% endhighlight %}
 
 
-{% highlight c++ %}  <br/>
+{% highlight c++ %} 
 def build_csv_data(queried_id_list):
     """Retrieves the data from the Chat API"""
     import time
@@ -100,12 +100,12 @@ def build_csv_data(queried_id_list):
 {% endhighlight %}
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %}  
 queried_id_list = get_chat_ids_for_month(2017,5,1,2017,12,31)
  {% endhighlight %}
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %}  
 all_rows_as_obj = []
 
 for record in csv_obj_data:
@@ -144,7 +144,7 @@ for record in csv_obj_data:
  {% endhighlight %}
 
 
-{% highlight c++ %}  <br/> 
+{% highlight c++ %}  
 col_keys = all_rows_as_obj[0].keys()
 csv_frame = pd.DataFrame([[i[j] for j in col_keys] for i in all_rows_as_obj], columns=col_keys)
 csv_frame['end timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['end timestamp']]
