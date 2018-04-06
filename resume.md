@@ -14,7 +14,7 @@ permalink: /resume/
   <header class="header-details">
     <h1 class="name">Sarah Floris </h1>
       <article class="links-container">
-        <a class="links" href="https://github.com/sdf94" <img src="./img/gh_icon.png" width="21" height="21">GitHub</a>
+        <a class="links" href="https://github.com/sdf94"> <img src="./img/gh_icon.png" width="21" height="21">GitHub</a>
         <a class="links" href="https://www.linkedin.com/in/sarah-floris/" ><img src="./img/in_icon.png" width="18" height="18">LinkedIn</a>
       </article>
   </header>
