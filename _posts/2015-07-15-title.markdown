@@ -1,11 +1,10 @@
 ---
 layout: post
 title: Pulling Data from Zendesk Chat API 
-date: 2015-04-06 14:31:00
+date: 2018-04-06 14:31:00
 description: Pulling the chats details to analyze Zendesk metrics 
 ---
-This theme implements a built-in Jekyll feature, the use of Pygments, for sytanx highlighting. It supports more than 100 languages. This example is in C++. All you have to do is wrap your code in a liquid tag: 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 import requests 
 import json
@@ -13,11 +12,10 @@ import pandas as pd
 import numpy as np
 import io
 import datetime  
-import matplotlib as plt <br/> {% endhighlight %}{% endraw %}
+import matplotlib as plt <br/> {% endhighlight %}
 
 Produces something like this: 
 
-{% raw  %}
 {% highlight c++ %}  <br/> 
 
 try:
@@ -25,11 +23,11 @@ try:
 except:
     from itertools import izip_longest as zip_longest
 
-{% endhighlight %}{% endraw %}
+{% endhighlight %}
 
 BLALBLA
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 
 config = {'username':username,
@@ -37,17 +35,17 @@ config = {'username':username,
     'base_path': 'https://www.zopim.com/api/v2'
     }
 
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
-{% raw  %}
+
 {% highlight c++ %} 
 s = requests.Session()
 s.auth = (config['username'],config['password'])
 s.headers.update({"content-type":"application/json"}) 
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 
 def get_chat_ids_for_month(year, month,day,year1, month1,day1):
@@ -66,18 +64,18 @@ def get_chat_ids_for_month(year, month,day,year1, month1,day1):
         else:
             print("A request failed in the loop")
     return all_chat_ids
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 def _grouper(n, iterable, fillvalue=None):
     """Creates chunks of the query"""
     args = [iter(iterable)] * n
     return zip_longest(fillvalue=fillvalue, *args)
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
-{% raw  %}
+
 {% highlight c++ %}  <br/>
 def build_csv_data(queried_id_list):
     """Retrieves the data from the Chat API"""
@@ -99,14 +97,14 @@ def build_csv_data(queried_id_list):
             print("error getting bulk chats")
             continue 
     return all_chats_for_csv
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 queried_id_list = get_chat_ids_for_month(2017,5,1,2017,12,31)
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 all_rows_as_obj = []
 
@@ -143,13 +141,13 @@ for record in csv_obj_data:
             pass
     all_rows_as_obj.append(csv_obj)
 
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
 
-{% raw  %}
+
 {% highlight c++ %}  <br/> 
 col_keys = all_rows_as_obj[0].keys()
 csv_frame = pd.DataFrame([[i[j] for j in col_keys] for i in all_rows_as_obj], columns=col_keys)
 csv_frame['end timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['end timestamp']]
 csv_frame['start timestamp'] = [datetime.datetime.strptime(str(x),'%Y-%m-%dT%H:%M:%SZ') for x in csv_frame['start timestamp']]
 csv_frame.to_excel('stats.xlsx',encoding='utf-8')
-<br/> {% endhighlight %}{% endraw %}
+<br/> {% endhighlight %}
