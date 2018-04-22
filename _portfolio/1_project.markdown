@@ -4,8 +4,10 @@ title: Twitter Tool
 description: How I used my web scraping tool in my own project
 img: /img/Twitter.jpg
 ---
-As part of my major ongoing project, "How Much Will You Earn Off Of Your Videogame?"
-Twitter Tool has literally blown this project out of its socks. I was constantly hitting walls or coding block because I could not figure out how to get a large number of tweets. 
+As part of my major ongoing project, "How Much Will You Earn Off Of Your Videogame?", I was needing to load a large amount of tweets for a lot of videogames.  
+Twitter Tool has literally blown this project out of its socks. I was constantly hitting walls or coding block because I could not figure out how to get a large number of tweets. This code is based upon the code originally created at https://github.com/Jefferson-Henrique/GetOldTweets-python
+
+
 
 {% highlight python %}
 
