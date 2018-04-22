@@ -7,7 +7,7 @@ permalink: /about/
 <img class="col one right" src="/img/Cropped_version.jpg">
 
 <br/>
-I am data scientist, emphasizing in data scraping, data wrangling, and machine learning. I love to code and to analyze large data sets. But you know what I love more? CUstomers, students, and all sorts of other individuals who leave a trail of data and figuring out what they need and want. By analyzing the trail, I can now understand and help people.  
+I am data scientist, emphasizing in data scraping, data wrangling, and machine learning. I love to code and to analyze large data sets. But you know what I love more? Customers, students, and all sorts of other individuals who leave a trail of data and figuring out what they need and want. By analyzing the trail, I can now understand and help people.  
 
 <br/>
 <hr/>
